@@ -1,5 +1,5 @@
 node { stage('SCM') {
-git 'https://github.com/lina-x/test.git/'  }  
+git 'https://github.com/dsxzhomework/test.git/'  }  
 	stage('QA') {
 sh 'sonar-scanner'  }  
 	stage('build') { 
