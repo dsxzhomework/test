@@ -9,10 +9,10 @@ node { stage('SCM') {
 		sh "${mvnHome}/bin/mvn -B clean package"
 	}  
 	stage('deploy') {
-    		sh "docker stop tomcat || true"
-    		sh "docker rm tomcat || true"
-    		sh "docker run --name tomcat -p 80:8080 -d tomcat"
-		sh "docker cp target/test.war tomcat:/usr/local/tomcat/webapps"
+    		sh "docker stop my || true"
+    		sh "docker rm my || true"
+    		sh "docker run --name my -p 80:8080 -d tomcat"
+		sh "docker cp target/test.war my:/usr/local/tomcat/webapps"
 	}  
 	stage('results') { 
        		archiveArtifacts artifacts: '**/target/*.war', fingerprint: true  
